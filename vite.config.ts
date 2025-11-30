@@ -18,14 +18,19 @@ export default defineConfig({
     },
   },
   envDir: path.resolve(import.meta.dirname),
+
+  // Correct root for your project
   root: path.resolve(import.meta.dirname, "client"),
+
+  // FIX: Correct Vercel-compatible output directory
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
+
   server: {
     port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
+    strictPort: false,
     host: true,
     allowedHosts: [
       ".manuspre.computer",
